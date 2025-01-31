@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const API_URL = "https://jsonplaceholder.typicode.com/users";
 
-// Foydalanuvchilarni olish (GET)
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
     const response = await fetch(API_URL);
     return response.json();
@@ -17,7 +16,6 @@ export const addUser = createAsyncThunk("users/addUser", async (newUser) => {
     return response.json();
 });
 
-// Foydalanuvchini yangilash (PUT)
 export const updateUser = createAsyncThunk("users/updateUser", async (updatedUser) => {
     const response = await fetch(`${API_URL}/${updatedUser.id}`, {
         method: "PUT",
@@ -26,18 +24,15 @@ export const updateUser = createAsyncThunk("users/updateUser", async (updatedUse
     });
     return response.json();
 });
-
-// Foydalanuvchini o'chirish (DELETE)
 export const deleteUser = createAsyncThunk("users/deleteUser", async (id) => {
     await fetch(`${API_URL}/${id}`, { method: "DELETE" });
     return id;
 });
 
-// Redux Slice
 const usersSlice = createSlice({
     name: "users",
     initialState: { users: [], status: "idle", error: null },
-    reducers: {}, // Oddiy reducers yo'q
+    reducers: {}, 
     extraReducers: (builder) => {
         builder
             .addCase(fetchUsers.pending, (state) => {
@@ -64,5 +59,4 @@ const usersSlice = createSlice({
     },
 });
 
-// Slice reducer'ni eksport qilish
 export default usersSlice.reducer;

@@ -7,7 +7,7 @@ function UsersList() {
     const dispatch = useDispatch();
     const { users = [], status, error } = useSelector((state) => state.users || {});
     const [search, setSearch] = useState("");
-    const [sortBy, setSortBy] = useState("name"); // Saralash parametri
+    const [sortBy, setSortBy] = useState("name"); 
 
     useEffect(() => {
         dispatch(fetchUsers());
@@ -21,7 +21,6 @@ function UsersList() {
         <div className="p-6 bg-gray-100 min-h-screen">
             <h1 className="text-3xl font-bold text-center mb-6">📋 Foydalanuvchilar Ro'yxati</h1>
 
-            {/* Qidiruv va saralash */}
             <div className="flex justify-between mb-4">
                 <input
                     type="text"
@@ -36,16 +35,12 @@ function UsersList() {
                 </select>
             </div>
 
-            {/* Yuklanish holati */}
             {status === "loading" && <p>Yuklanmoqda...</p>}
 
-            {/* Xatolik holati */}
             {status === "failed" && <p className="text-red-500">Xatolik yuz berdi: {error}</p>}
 
-            {/* Foydalanuvchilar mavjud bo'lmasa */}
             {status === "succeeded" && users.length === 0 && <p className="text-center">Hozircha foydalanuvchilar mavjud emas.</p>}
 
-            {/* Foydalanuvchilar jadvali */}
             {status === "succeeded" && users.length > 0 && (
                 <table className="w-full bg-white shadow-md rounded">
                     <thead>
@@ -75,7 +70,6 @@ function UsersList() {
                 </table>
             )}
 
-            {/* Yangi foydalanuvchi qo‘shish */}
             <UserForm />
         </div>
     );

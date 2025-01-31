@@ -17,16 +17,7 @@ function Header() {
                     >
                         Home
                     </NavLink>
-                    <NavLink
-                        to="/todos"
-                        className={({ isActive }) =>
-                            isActive
-                                ? "text-yellow-300 font-semibold underline"
-                                : "hover:text-yellow-300 transition"
-                        }
-                    >
-                        Todos
-                    </NavLink>
+                  
                     <NavLink
                         to="/users"
                         className={({ isActive }) =>
@@ -37,15 +28,26 @@ function Header() {
                     >
                         Users
                     </NavLink>
+               
                     <NavLink
-                        to="/user-form"
+                        to="/products"
                         className={({ isActive }) =>
                             isActive
                                 ? "text-yellow-300 font-semibold underline"
                                 : "hover:text-yellow-300 transition"
                         }
                     >
-                        Add User
+                        Products
+                    </NavLink>
+                    <NavLink
+                        to="/cart"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "text-yellow-300 font-semibold underline"
+                                : "hover:text-yellow-300 transition"
+                        }
+                    >
+                        Cart
                     </NavLink>
                 </nav>
             </div>

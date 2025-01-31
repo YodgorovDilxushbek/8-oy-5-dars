@@ -4,7 +4,7 @@ import { addTodo, toggleTodo, removeTodo } from '../store/todosSlice.js';
 
 function TodoList() {
     const [newTodo, setNewTodo] = useState('');
-    const todos = useSelector(state => state.todos.todos);
+    const todos = useSelector(state => state.todos?.todos || []);
     const dispatch = useDispatch();
 
     const handleAddTodo = () => {
@@ -19,7 +19,7 @@ function TodoList() {
     };
 
     return (
-        <div className="h-screen w-{100%} flex items-center justify-center  p-6">
+        <div className="h-screen w-full flex items-center justify-center p-6">
             <div className="w-full max-w-lg p-6 rounded-3xl bg-white/10 backdrop-blur-lg shadow-2xl border border-white/20">
                 <h2 className="text-3xl font-extrabold text-gray text-center mb-6"> Todo List</h2>
 

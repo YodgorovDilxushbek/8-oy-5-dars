@@ -6,7 +6,7 @@ function UserForm() {
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({ name: "", email: "" });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e) => {   
         e.preventDefault();
         if (formData.name && formData.email) {
             dispatch(addUser(formData));
